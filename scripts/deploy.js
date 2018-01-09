@@ -52,7 +52,8 @@ function walk(rootdir, callback, subdir) {
           Bucket: isSubdir ? `${config.s3BucketName}/${subdir}` : config.s3BucketName,
           Key: filename,
           Body: fileContent,
-          ContentType: mimeType
+          ContentType: mimeType,
+          ACL: 'public-read'
         }
 
         // upload file to S3
